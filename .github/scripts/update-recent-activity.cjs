@@ -5,7 +5,7 @@ const MAX_ITEMS = 5;
 const README_PATH = 'README.md';
 const START_MARKER = '<!--RECENT_ACTIVITY:start-->';
 const END_MARKER = '<!--RECENT_ACTIVITY:end-->';
-const SOURCE_VERSION = 1;
+const SOURCE_VERSION = 2;
 
 function resourceNumber(event) {
   return event.payload?.number
@@ -239,7 +239,7 @@ function validateGeneratedActivity(markdown, facts) {
     const line = lines[index];
     const fact = facts[index];
     if (!line.startsWith(`${index + 1}. `) || line.length > 500) return null;
-    if (!line.includes(`(${fact.url})`)) return null;
+    if (!line.includes(fact.url)) return null;
     if (!line.includes(`[${fact.repository}](${fact.repositoryUrl})`)) return null;
 
     const urls = line.match(/https:\/\/[^\s)]+/g) ?? [];

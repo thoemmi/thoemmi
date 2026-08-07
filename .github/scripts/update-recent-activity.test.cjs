@@ -142,8 +142,8 @@ test('builds a prompt only from the verified normalized facts', () => {
 test('accepts grounded Copilot output and rejects unknown links', () => {
   const facts = [mergedPullRequest, publicPush];
   const valid = [
-    '1. 🎉 Landed [PR #1795](https://github.com/meziantou/Meziantou.Framework/pull/1795) in [meziantou/Meziantou.Framework](https://github.com/meziantou/Meziantou.Framework).',
-    '2. 🛠️ Continued work in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell) with a new [push](https://github.com/thoemmi/7Zip4Powershell/commit/2f764ce46535cc0d70f6f24ad2d5bb3a70dca0eb).',
+    '1. 🔀 Merged pull request #1795 in [meziantou/Meziantou.Framework](https://github.com/meziantou/Meziantou.Framework): https://github.com/meziantou/Meziantou.Framework/pull/1795',
+    '2. 📦 Pushed a commit to [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell): https://github.com/thoemmi/7Zip4Powershell/commit/2f764ce46535cc0d70f6f24ad2d5bb3a70dca0eb',
   ].join('\n');
   const invalid = valid.replace(
     'https://github.com/thoemmi/7Zip4Powershell/commit/2f764ce46535cc0d70f6f24ad2d5bb3a70dca0eb',
