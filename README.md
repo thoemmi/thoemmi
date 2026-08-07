@@ -16,8 +16,7 @@ I work at [<img src=".github/assets/cloud-klabauter.png" alt="Cloud Klabauter Gm
 
 <!--RECENT_ACTIVITY:start-->
 1. 🎉 Merged PR [#1795](https://github.com/meziantou/Meziantou.Framework/pull/1795) in [meziantou/Meziantou.Framework](https://github.com/meziantou/Meziantou.Framework)
-2. 💪 Opened PR [#1795](https://github.com/meziantou/Meziantou.Framework/pull/1795) in [meziantou/Meziantou.Framework](https://github.com/meziantou/Meziantou.Framework)
-3. ⬆️ Pushed to [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell/commit/2f764ce46535cc0d70f6f24ad2d5bb3a70dca0eb)
+2. ⬆️ Pushed to [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell/commit/2f764ce46535cc0d70f6f24ad2d5bb3a70dca0eb)
 <!--RECENT_ACTIVITY:end-->
 
 ### Elsewhere
