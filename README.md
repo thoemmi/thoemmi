@@ -15,11 +15,9 @@ I work at [<img src=".github/assets/cloud-klabauter.png" alt="Cloud Klabauter Gm
 ### Recent GitHub activity
 
 <!--RECENT_ACTIVITY:start-->
-1. 💪 Opened PR [#1795](undefined) in [meziantou/Meziantou.Framework](https://github.com/meziantou/Meziantou.Framework)<br>
-2. ⬆️ Pushed undefined commit(s) to [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)<br>
-3. <br>
-4. <br>
-5. <br>
+<!--RECENT_ACTIVITY:source:9638fd70290e11f60176afcf59fa4e965aef726e8106e9ff39336f2f0a34c0ec-->
+1. 🔀 Opened a pull request that was later merged — [PR #1795](https://github.com/meziantou/Meziantou.Framework/pull/1795) in [meziantou/Meziantou.Framework](https://github.com/meziantou/Meziantou.Framework)
+2. 📤 Pushed an update — [latest push](https://github.com/thoemmi/7Zip4Powershell/commit/2f764ce46535cc0d70f6f24ad2d5bb3a70dca0eb) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
 <!--RECENT_ACTIVITY:end-->
 
 ### Elsewhere
