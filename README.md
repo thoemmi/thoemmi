@@ -15,9 +15,9 @@ I work at [<img src=".github/assets/cloud-klabauter.png" alt="Cloud Klabauter Gm
 ### Recent GitHub activity
 
 <!--RECENT_ACTIVITY:start-->
-<!--RECENT_ACTIVITY:source:0828d1c0cfbba214fbda5c2dfcfb173d0f1a730ae6ded5874b44d0a61c59db1d-->
-1. 🔀 A pull request was opened and later merged — [PR #1795](https://github.com/meziantou/Meziantou.Framework/pull/1795) in [meziantou/Meziantou.Framework](https://github.com/meziantou/Meziantou.Framework)
-2. 📦 Commits were pushed — [latest push](https://github.com/thoemmi/7Zip4Powershell/commit/2f764ce46535cc0d70f6f24ad2d5bb3a70dca0eb) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
+<!--RECENT_ACTIVITY:source:9638fd70290e11f60176afcf59fa4e965aef726e8106e9ff39336f2f0a34c0ec-->
+1. 🔀 Opened a pull request that was later merged — [PR #1795](https://github.com/meziantou/Meziantou.Framework/pull/1795) in [meziantou/Meziantou.Framework](https://github.com/meziantou/Meziantou.Framework)
+2. 📤 Pushed an update — [latest push](https://github.com/thoemmi/7Zip4Powershell/commit/2f764ce46535cc0d70f6f24ad2d5bb3a70dca0eb) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
 <!--RECENT_ACTIVITY:end-->
 
 ### Elsewhere
