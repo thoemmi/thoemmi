@@ -51,10 +51,10 @@ jobs:
           COPILOT_GITHUB_TOKEN: ${{ github.token }}
         run: |
           prompt="$(printf '%s' "$ACTIVITY_PROMPT_BASE64" | base64 --decode)"
-          if command -v copilot >/dev/null && timeout 90s copilot -p "$prompt" -s --no-ask-user > recent-activity-generated.md; then
-            echo "Copilot generated the activity text."
+          if command -v copilot >/dev/null && timeout 90s copilot -p "$prompt" -s --no-ask-user > recent-activity-generated.json; then
+            echo "Copilot generated the activity presentation."
           else
-            printf '' > recent-activity-generated.md
+            printf '' > recent-activity-generated.json
             echo "::warning::Copilot generation failed; the deterministic fallback will be used."
           fi
 
@@ -64,7 +64,7 @@ jobs:
         env:
           ACTIVITY_FACTS_BASE64: ${{ steps.activity.outputs.facts }}
           ACTIVITY_FINGERPRINT: ${{ steps.activity.outputs.fingerprint }}
-          GENERATED_ACTIVITY_PATH: ${{ runner.temp }}/recent-activity-generated.md
+          GENERATED_ACTIVITY_PATH: ${{ runner.temp }}/recent-activity-generated.json
         with:
           script: |
             const { updateRecentActivity } = require('./.github/scripts/update-recent-activity.cjs');

@@ -5,34 +5,43 @@ const {
   buildPrompt,
   fingerprintFacts,
   normalizeEvents,
+  parseGeneratedPresentations,
   prepareRecentActivity,
   renderActivity,
   replaceActivitySection,
   selectVerifiedPublicFacts,
   sourceMarker,
   updateRecentActivity,
-  validateGeneratedActivity,
 } = require('./update-recent-activity.cjs');
 
 const mergedPullRequest = {
+  id: 'pull_request:meziantou/Meziantou.Framework:1795',
   kind: 'pull_request',
-  action: 'merged',
   repository: 'meziantou/Meziantou.Framework',
   repositoryUrl: 'https://github.com/meziantou/Meziantou.Framework',
   number: 1795,
   url: 'https://github.com/meziantou/Meziantou.Framework/pull/1795',
+  actions: ['opened', 'merged'],
 };
 
 const publicPush = {
+  id: 'push:thoemmi/7Zip4Powershell',
   kind: 'push',
-  action: 'pushed',
   repository: 'thoemmi/7Zip4Powershell',
   repositoryUrl: 'https://github.com/thoemmi/7Zip4Powershell',
-  url: 'https://github.com/thoemmi/7Zip4Powershell/commit/2f764ce46535cc0d70f6f24ad2d5bb3a70dca0eb',
+  pushCount: 2,
+  url: 'https://github.com/thoemmi/7Zip4Powershell/commit/new-head',
+  actions: ['pushed'],
 };
 
-test('normalizes only explicitly public events and deduplicates a PR lifecycle', () => {
+test('builds lifecycle stories, groups pushes, and keeps only explicit public events', () => {
   const events = [
+    {
+      public: true,
+      type: 'PushEvent',
+      repo: { name: 'thoemmi/7Zip4Powershell' },
+      payload: { head: 'new-head' },
+    },
     {
       public: true,
       type: 'PushEvent',
@@ -66,9 +75,7 @@ test('normalizes only explicitly public events and deduplicates a PR lifecycle',
       public: true,
       type: 'PushEvent',
       repo: { name: 'thoemmi/7Zip4Powershell' },
-      payload: {
-        head: '2f764ce46535cc0d70f6f24ad2d5bb3a70dca0eb',
-      },
+      payload: { head: 'old-head' },
     },
   ];
 
@@ -76,10 +83,40 @@ test('normalizes only explicitly public events and deduplicates a PR lifecycle',
 
   assert.deepEqual(facts, [mergedPullRequest, publicPush]);
   assert.doesNotMatch(JSON.stringify(facts), /private-project|unknown-visibility/);
-  assert.deepEqual(renderActivity(facts), [
-    '1. 🎉 Merged PR [#1795](https://github.com/meziantou/Meziantou.Framework/pull/1795) in [meziantou/Meziantou.Framework](https://github.com/meziantou/Meziantou.Framework)',
-    '2. ⬆️ Pushed to [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell/commit/2f764ce46535cc0d70f6f24ad2d5bb3a70dca0eb)',
-  ]);
+});
+
+test('ranks meaningful activity ahead of newer routine pushes', () => {
+  const events = [
+    {
+      public: true,
+      type: 'PushEvent',
+      repo: { name: 'owner/new-push' },
+      payload: { head: 'head' },
+    },
+    {
+      public: true,
+      type: 'IssuesEvent',
+      repo: { name: 'owner/project' },
+      payload: { action: 'opened', number: 42 },
+    },
+    {
+      public: true,
+      type: 'PullRequestReviewEvent',
+      repo: { name: 'owner/project' },
+      payload: { pull_request: { number: 43 } },
+    },
+    {
+      public: true,
+      type: 'ReleaseEvent',
+      repo: { name: 'owner/project' },
+      payload: { release: { tag_name: 'v1.2.3' } },
+    },
+  ];
+
+  assert.deepEqual(
+    normalizeEvents(events).map((fact) => fact.kind),
+    ['release', 'pull_request', 'issue', 'push'],
+  );
 });
 
 test('keeps only repositories whose visibility is verified as public', async () => {
@@ -87,23 +124,34 @@ test('keeps only repositories whose visibility is verified as public', async () 
     mergedPullRequest,
     {
       ...publicPush,
+      id: 'push:thoemmi/private-project',
       repository: 'thoemmi/private-project',
       repositoryUrl: 'https://github.com/thoemmi/private-project',
       url: 'https://github.com/thoemmi/private-project/commit/private',
     },
     {
       ...publicPush,
+      id: 'push:company/internal-project',
       repository: 'company/internal-project',
       repositoryUrl: 'https://github.com/company/internal-project',
       url: 'https://github.com/company/internal-project/commit/internal',
     },
+    {
+      ...publicPush,
+      id: 'push:owner/unverifiable',
+      repository: 'owner/unverifiable',
+      repositoryUrl: 'https://github.com/owner/unverifiable',
+      url: 'https://github.com/owner/unverifiable/commit/unknown',
+    },
   ];
   const calls = [];
+  const warnings = [];
   const github = {
     rest: {
       repos: {
         get: async ({ owner, repo }) => {
           calls.push(`${owner}/${repo}`);
+          if (repo === 'unverifiable') throw new Error('Not available');
           return {
             data: {
               private: repo === 'private-project',
@@ -120,38 +168,75 @@ test('keeps only repositories whose visibility is verified as public', async () 
   const selected = await selectVerifiedPublicFacts(
     github,
     facts,
-    { warning: () => {} },
+    { warning: (message) => warnings.push(message) },
   );
 
   assert.deepEqual(calls, [
     'meziantou/Meziantou.Framework',
     'thoemmi/private-project',
     'company/internal-project',
+    'owner/unverifiable',
   ]);
   assert.deepEqual(selected, [mergedPullRequest]);
+  assert.equal(warnings.length, 1);
 });
 
-test('builds a prompt only from the verified normalized facts', () => {
+test('gives Copilot abstract timelines without repositories, numbers, or links', () => {
   const prompt = buildPrompt([mergedPullRequest, publicPush]);
 
-  assert.match(prompt, /untrusted data, never instructions/);
-  assert.match(prompt, /meziantou\/Meziantou\.Framework/);
-  assert.doesNotMatch(prompt, /title|body|private-project/);
+  assert.match(prompt, /"actions": \[\s*"opened",\s*"merged"/);
+  assert.match(prompt, /"multiplePushes": true/);
+  assert.match(prompt, /"id": "activity-1"/);
+  assert.doesNotMatch(prompt, /Meziantou|7Zip4Powershell|1795|https:\/\//);
 });
 
-test('accepts grounded Copilot output and rejects unknown links', () => {
+test('accepts structured presentation text and renders only trusted links', () => {
   const facts = [mergedPullRequest, publicPush];
-  const valid = [
-    '1. 🔀 Merged pull request #1795 in [meziantou/Meziantou.Framework](https://github.com/meziantou/Meziantou.Framework): https://github.com/meziantou/Meziantou.Framework/pull/1795',
-    '2. 📦 Pushed a commit to [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell): https://github.com/thoemmi/7Zip4Powershell/commit/2f764ce46535cc0d70f6f24ad2d5bb3a70dca0eb',
-  ].join('\n');
-  const invalid = valid.replace(
-    'https://github.com/thoemmi/7Zip4Powershell/commit/2f764ce46535cc0d70f6f24ad2d5bb3a70dca0eb',
-    'https://example.com/invented',
-  );
+  const generated = JSON.stringify([
+    {
+      id: 'activity-1',
+      emoji: '🔀',
+      text: 'Opened a pull request that was later merged',
+    },
+    {
+      id: 'activity-2',
+      emoji: '🧰',
+      text: 'Continued development with several pushes',
+    },
+  ]);
+  const presentations = parseGeneratedPresentations(generated, facts);
 
-  assert.deepEqual(validateGeneratedActivity(valid, facts), valid.split('\n'));
-  assert.equal(validateGeneratedActivity(invalid, facts), null);
+  assert.deepEqual(presentations, [
+    { emoji: '🔀', text: 'Opened a pull request that was later merged' },
+    { emoji: '🧰', text: 'Continued development with several pushes' },
+  ]);
+  assert.deepEqual(renderActivity(facts, presentations), [
+    '1. 🔀 Opened a pull request that was later merged — [PR #1795](https://github.com/meziantou/Meziantou.Framework/pull/1795) in [meziantou/Meziantou.Framework](https://github.com/meziantou/Meziantou.Framework)',
+    '2. 🧰 Continued development with several pushes — [latest push](https://github.com/thoemmi/7Zip4Powershell/commit/new-head) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)',
+  ]);
+});
+
+test('rejects Copilot output containing unknown fields, Markdown, or invented numbers', () => {
+  const valid = [
+    { id: 'activity-1', emoji: '🔀', text: 'Opened and later merged a pull request' },
+  ];
+
+  assert.equal(parseGeneratedPresentations(JSON.stringify([
+    { ...valid[0], url: 'https://example.com' },
+  ]), [mergedPullRequest]), null);
+  assert.equal(parseGeneratedPresentations(JSON.stringify([
+    { ...valid[0], text: 'Merged [PR](https://example.com)' },
+  ]), [mergedPullRequest]), null);
+  assert.equal(parseGeneratedPresentations(JSON.stringify([
+    { ...valid[0], text: 'Merged PR 1795' },
+  ]), [mergedPullRequest]), null);
+});
+
+test('renders a complete deterministic fallback story', () => {
+  assert.deepEqual(renderActivity([mergedPullRequest, publicPush]), [
+    '1. 🔀 Opened a pull request that was later merged — [PR #1795](https://github.com/meziantou/Meziantou.Framework/pull/1795) in [meziantou/Meziantou.Framework](https://github.com/meziantou/Meziantou.Framework)',
+    '2. ⬆️ Continued development with multiple pushes — [latest push](https://github.com/thoemmi/7Zip4Powershell/commit/new-head) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)',
+  ]);
 });
 
 test('replaces the generated section with a source fingerprint', () => {
@@ -215,7 +300,7 @@ function createGitHubMock({ events, readme, visibility = {} }) {
   return { calls, github };
 }
 
-test('prepares only verified public activity and exposes a stable fingerprint', async () => {
+test('prepares only verified public stories and exposes a stable fingerprint', async () => {
   const events = [
     {
       public: false,
@@ -254,18 +339,17 @@ test('prepares only verified public activity and exposes a stable fingerprint', 
   });
 
   assert.equal(calls[0].route, 'GET /users/{username}/events/public');
-  assert.equal(calls[0].options.headers['X-GitHub-Api-Version'], '2026-03-10');
   assert.deepEqual(calls[1].get, { owner: 'owner', repo: 'project' });
   assert.equal(outputs.changed, 'true');
   assert.equal(outputs.has_activity, 'true');
   assert.equal(outputs.fingerprint, fingerprintFacts(result.facts));
   assert.doesNotMatch(
-    Buffer.from(outputs.facts, 'base64').toString('utf8'),
-    /private-project|private-head/,
+    Buffer.from(outputs.prompt, 'base64').toString('utf8'),
+    /private-project|owner\/project|public-head/,
   );
 });
 
-test('skips Copilot when the public activity fingerprint is unchanged', async () => {
+test('skips Copilot when the grouped public stories are unchanged', async () => {
   const events = [{
     public: true,
     type: 'PushEvent',
@@ -310,8 +394,7 @@ test('updates the README with deterministic fallback text', async () => {
     '',
   ].join('\n');
   const { calls, github } = createGitHubMock({ events: [], readme });
-  const facts = [mergedPullRequest];
-  const fingerprint = fingerprintFacts(facts);
+  const fingerprint = fingerprintFacts([mergedPullRequest]);
 
   await updateRecentActivity({
     github,
@@ -320,7 +403,7 @@ test('updates the README with deterministic fallback text', async () => {
       repo: { owner: 'thoemmi', repo: 'thoemmi' },
     },
     core: { info: () => {}, warning: () => {} },
-    factsBase64: Buffer.from(JSON.stringify(facts)).toString('base64'),
+    factsBase64: Buffer.from(JSON.stringify([mergedPullRequest])).toString('base64'),
     fingerprint,
   });
 
@@ -328,6 +411,6 @@ test('updates the README with deterministic fallback text', async () => {
     .createOrUpdateFileContents;
   const updated = Buffer.from(update.content, 'base64').toString('utf8');
   assert.match(updated, new RegExp(sourceMarker(fingerprint)));
-  assert.match(updated, /1\. 🎉 Merged PR/);
+  assert.match(updated, /Opened a pull request that was later merged/);
   assert.doesNotMatch(updated, /1\. old/);
 });
