@@ -15,9 +15,8 @@ I work at [<img src=".github/assets/cloud-klabauter.png" alt="Cloud Klabauter Gm
 ### Recent GitHub activity
 
 <!--RECENT_ACTIVITY:start-->
-<!--RECENT_ACTIVITY:source:d373f1bf6c20d9b0085e669a8c312f1eab444487ec2f5c209daefef4182ef650-->
-1. 🔀 Merged a pull request — [PR #1795](https://github.com/meziantou/Meziantou.Framework/pull/1795) in [meziantou/Meziantou.Framework](https://github.com/meziantou/Meziantou.Framework)
-2. 🚫 Closed a pull request — [PR #4761](https://github.com/microsoft/agent-framework/pull/4761) in [microsoft/agent-framework](https://github.com/microsoft/agent-framework)
+<!--RECENT_ACTIVITY:source:80d4560fcba59a691136b47f9335e53f1551a227d734c4a904eca7d7a1ac0cca-->
+1. 🔒 Closed a pull request — [PR #4761](https://github.com/microsoft/agent-framework/pull/4761) in [microsoft/agent-framework](https://github.com/microsoft/agent-framework)
 <!--RECENT_ACTIVITY:end-->
 
 ### Elsewhere
