@@ -15,8 +15,9 @@ I work at [<img src=".github/assets/cloud-klabauter.png" alt="Cloud Klabauter Gm
 ### Recent GitHub activity
 
 <!--RECENT_ACTIVITY:start-->
-<!--RECENT_ACTIVITY:source:80d4560fcba59a691136b47f9335e53f1551a227d734c4a904eca7d7a1ac0cca-->
-1. 🔒 Closed a pull request — [PR #4761](https://github.com/microsoft/agent-framework/pull/4761) in [microsoft/agent-framework](https://github.com/microsoft/agent-framework)
+<!--RECENT_ACTIVITY:source:474a7729ea93de8e370cabd57af85ecaf754b8bd149b0d8eec80eef1fbd7f9e6-->
+1. 🔀 Opened a pull request that was later merged — [PR #2](https://github.com/pschmitt/codex-ha-bridge/pull/2) in [pschmitt/codex-ha-bridge](https://github.com/pschmitt/codex-ha-bridge)
+2. 🚫 Closed a pull request — [PR #4761](https://github.com/microsoft/agent-framework/pull/4761) in [microsoft/agent-framework](https://github.com/microsoft/agent-framework)
 <!--RECENT_ACTIVITY:end-->
 
 ### Elsewhere
