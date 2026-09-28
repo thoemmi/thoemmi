@@ -15,8 +15,7 @@ I work at [<img src=".github/assets/cloud-klabauter.png" alt="Cloud Klabauter Gm
 ### Recent GitHub activity
 
 <!--RECENT_ACTIVITY:start-->
-<!--RECENT_ACTIVITY:source:f7ba20809581284922348d275480c2d7bfe9df9cb8110d9137768806c603f12e-->
-1. 🔀 Opened a pull request that was later merged — [PR #2](https://github.com/pschmitt/codex-ha-bridge/pull/2) in [pschmitt/codex-ha-bridge](https://github.com/pschmitt/codex-ha-bridge)
+<!--RECENT_ACTIVITY:source:0e328faaa329fcd8c4c1448ad9528db68f0e1d6b339748fadfe9fdeec1225949-->
 <!--RECENT_ACTIVITY:end-->
 
 ### Elsewhere
