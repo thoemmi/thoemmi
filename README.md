@@ -15,7 +15,9 @@ I work at [<img src=".github/assets/cloud-klabauter.png" alt="Cloud Klabauter Gm
 ### Recent GitHub activity
 
 <!--RECENT_ACTIVITY:start-->
-<!--RECENT_ACTIVITY:source:0e328faaa329fcd8c4c1448ad9528db68f0e1d6b339748fadfe9fdeec1225949-->
+<!--RECENT_ACTIVITY:source:0f34968a5120d93c5120bdec64da9d1e7db536394ddc14672c58e10b58a1f2e6-->
+1. 🔀 Opened a pull request — [PR #5146](https://github.com/RSS-Bridge/rss-bridge/pull/5146) in [RSS-Bridge/rss-bridge](https://github.com/RSS-Bridge/rss-bridge)
+2. 📤 Pushed an update — [latest push](https://github.com/thoemmi/rss-bridge/commit/dcd95589b348a15751488b9a57e1414fa3c958fe) in [thoemmi/rss-bridge](https://github.com/thoemmi/rss-bridge)
 <!--RECENT_ACTIVITY:end-->
 
 ### Elsewhere
