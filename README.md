@@ -15,9 +15,10 @@ I work at [<img src=".github/assets/cloud-klabauter.png" alt="Cloud Klabauter Gm
 ### Recent GitHub activity
 
 <!--RECENT_ACTIVITY:start-->
-<!--RECENT_ACTIVITY:source:0f34968a5120d93c5120bdec64da9d1e7db536394ddc14672c58e10b58a1f2e6-->
-1. 🔀 Opened a pull request — [PR #5146](https://github.com/RSS-Bridge/rss-bridge/pull/5146) in [RSS-Bridge/rss-bridge](https://github.com/RSS-Bridge/rss-bridge)
-2. 📤 Pushed an update — [latest push](https://github.com/thoemmi/rss-bridge/commit/dcd95589b348a15751488b9a57e1414fa3c958fe) in [thoemmi/rss-bridge](https://github.com/thoemmi/rss-bridge)
+<!--RECENT_ACTIVITY:source:1058c55781a4e7869add489019e803ad1cfb34c0b4b08be62d77ba9b890fbb12-->
+1. 🔀 Opened a pull request — [PR #472](https://github.com/kvanbiesen/bmw-cardata-ha/pull/472) in [kvanbiesen/bmw-cardata-ha](https://github.com/kvanbiesen/bmw-cardata-ha)
+2. 🔀 Opened a pull request — [PR #5146](https://github.com/RSS-Bridge/rss-bridge/pull/5146) in [RSS-Bridge/rss-bridge](https://github.com/RSS-Bridge/rss-bridge)
+3. 📦 Made multiple pushes — [latest push](https://github.com/thoemmi/rss-bridge/commit/4dc49cfb19cbc26c714c4161dc72dfa68da23e5b) in [thoemmi/rss-bridge](https://github.com/thoemmi/rss-bridge)
 <!--RECENT_ACTIVITY:end-->
 
 ### Elsewhere
