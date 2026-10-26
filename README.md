@@ -15,11 +15,12 @@ I work at [<img src=".github/assets/cloud-klabauter.png" alt="Cloud Klabauter Gm
 ### Recent GitHub activity
 
 <!--RECENT_ACTIVITY:start-->
-<!--RECENT_ACTIVITY:source:fab89c4528dc26133879236045fbad9bc7b1dd53b631270a8cf6bbd05798eacf-->
-1. 🔀 Opened a pull request that was later merged — [PR #472](https://github.com/kvanbiesen/bmw-cardata-ha/pull/472) in [kvanbiesen/bmw-cardata-ha](https://github.com/kvanbiesen/bmw-cardata-ha)
-2. 📬 Opened a pull request — [PR #5146](https://github.com/RSS-Bridge/rss-bridge/pull/5146) in [RSS-Bridge/rss-bridge](https://github.com/RSS-Bridge/rss-bridge)
-3. 🚀 Made multiple pushes — [latest push](https://github.com/thoemmi/rss-bridge/commit/f517df86825cd2366768f2a55b28cc08530122c3) in [thoemmi/rss-bridge](https://github.com/thoemmi/rss-bridge)
-4. 📤 Pushed an update — [latest push](https://github.com/thoemmi/bmw-cardata-ha/commit/767556e03e36796e092fb6fbf454c163704de995) in [thoemmi/bmw-cardata-ha](https://github.com/thoemmi/bmw-cardata-ha)
+<!--RECENT_ACTIVITY:source:f63563ca314daf9120ddcd261b6779cbf0b020fd1a6626de95bc7cb03913261c-->
+1. 🔀 Opened a pull request that was later merged — [PR #119](https://github.com/thoemmi/7Zip4Powershell/pull/119) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
+2. 🔀 Opened a pull request that was later merged — [PR #120](https://github.com/thoemmi/7Zip4Powershell/pull/120) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
+3. 🏷️ Opened a pull request that was later labeled, assigned, and merged — [PR #118](https://github.com/thoemmi/7Zip4Powershell/pull/118) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
+4. 🔀 Opened a pull request that was later merged — [PR #117](https://github.com/thoemmi/7Zip4Powershell/pull/117) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
+5. 🔀 Opened a pull request that was later merged — [PR #472](https://github.com/kvanbiesen/bmw-cardata-ha/pull/472) in [kvanbiesen/bmw-cardata-ha](https://github.com/kvanbiesen/bmw-cardata-ha)
 <!--RECENT_ACTIVITY:end-->
 
 ### Elsewhere
