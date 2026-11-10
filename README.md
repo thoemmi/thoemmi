@@ -15,12 +15,12 @@ I work at [<img src=".github/assets/cloud-klabauter.png" alt="Cloud Klabauter Gm
 ### Recent GitHub activity
 
 <!--RECENT_ACTIVITY:start-->
-<!--RECENT_ACTIVITY:source:f63563ca314daf9120ddcd261b6779cbf0b020fd1a6626de95bc7cb03913261c-->
-1. 🔀 Opened a pull request that was later merged — [PR #119](https://github.com/thoemmi/7Zip4Powershell/pull/119) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
-2. 🔀 Opened a pull request that was later merged — [PR #120](https://github.com/thoemmi/7Zip4Powershell/pull/120) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
-3. 🏷️ Opened a pull request that was later labeled, assigned, and merged — [PR #118](https://github.com/thoemmi/7Zip4Powershell/pull/118) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
-4. 🔀 Opened a pull request that was later merged — [PR #117](https://github.com/thoemmi/7Zip4Powershell/pull/117) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
-5. 🔀 Opened a pull request that was later merged — [PR #472](https://github.com/kvanbiesen/bmw-cardata-ha/pull/472) in [kvanbiesen/bmw-cardata-ha](https://github.com/kvanbiesen/bmw-cardata-ha)
+<!--RECENT_ACTIVITY:source:a5648379f5d203c79dd8e5b8a56995d5ee63c9318f9bb203f4b373d92f049d2c-->
+1. 🔀 Opened a pull request that was later reviewed and merged — [PR #122](https://github.com/thoemmi/7Zip4Powershell/pull/122) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
+2. 🔀 Opened a pull request that was later merged — [PR #119](https://github.com/thoemmi/7Zip4Powershell/pull/119) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
+3. 🔀 Opened a pull request that was later merged — [PR #120](https://github.com/thoemmi/7Zip4Powershell/pull/120) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
+4. 🔀 Opened a pull request that was later labeled, assigned, and merged — [PR #118](https://github.com/thoemmi/7Zip4Powershell/pull/118) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
+5. 🔀 Opened a pull request that was later merged — [PR #117](https://github.com/thoemmi/7Zip4Powershell/pull/117) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
 <!--RECENT_ACTIVITY:end-->
 
 ### Elsewhere
