@@ -15,12 +15,12 @@ I work at [<img src=".github/assets/cloud-klabauter.png" alt="Cloud Klabauter Gm
 ### Recent GitHub activity
 
 <!--RECENT_ACTIVITY:start-->
-<!--RECENT_ACTIVITY:source:f3359e2239abaafd3183410b074f4a033ba98e8028ff9f0d61211a0ae295f771-->
-1. 🔀 Opened a pull request that was later merged — [PR #5146](https://github.com/RSS-Bridge/rss-bridge/pull/5146) in [RSS-Bridge/rss-bridge](https://github.com/RSS-Bridge/rss-bridge)
-2. 🔀 Opened a pull request that was later reviewed and merged — [PR #122](https://github.com/thoemmi/7Zip4Powershell/pull/122) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
-3. 🔀 Opened a pull request that was later merged — [PR #119](https://github.com/thoemmi/7Zip4Powershell/pull/119) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
-4. 🔀 Opened a pull request that was later merged — [PR #120](https://github.com/thoemmi/7Zip4Powershell/pull/120) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
-5. 🔀 Opened a pull request that was later labeled, assigned, and merged — [PR #118](https://github.com/thoemmi/7Zip4Powershell/pull/118) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
+<!--RECENT_ACTIVITY:source:e6047c6197be3cfd765e7d5a5e3220a9814ac65f646917c0fa8c0beaf99161f5-->
+1. 🔀 Opened a pull request that was later merged — [PR #6](https://github.com/yurastegny/barttery/pull/6) in [yurastegny/barttery](https://github.com/yurastegny/barttery)
+2. 🔀 Opened a pull request that was later merged — [PR #5146](https://github.com/RSS-Bridge/rss-bridge/pull/5146) in [RSS-Bridge/rss-bridge](https://github.com/RSS-Bridge/rss-bridge)
+3. 🔀 Opened a pull request that was later reviewed and merged — [PR #122](https://github.com/thoemmi/7Zip4Powershell/pull/122) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
+4. 🔀 Opened a pull request that was later merged — [PR #119](https://github.com/thoemmi/7Zip4Powershell/pull/119) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
+5. 🔀 Opened a pull request that was later merged — [PR #120](https://github.com/thoemmi/7Zip4Powershell/pull/120) in [thoemmi/7Zip4Powershell](https://github.com/thoemmi/7Zip4Powershell)
 <!--RECENT_ACTIVITY:end-->
 
 ### Elsewhere
